@@ -1,0 +1,32 @@
+package com.example.transitops.trip.dto;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class TripRequest {
+
+    @NotBlank(message = "Source is required")
+    private String source;
+
+    @NotBlank(message = "Destination is required")
+    private String destination;
+
+    @NotNull(message = "Cargo weight is required")
+    @Positive(message = "Cargo weight must be positive")
+    private Double cargoWeight;
+
+    @NotNull(message = "Planned distance is required")
+    @Positive(message = "Planned distance must be positive")
+    private Double plannedDistance;
+
+    @NotNull(message = "Vehicle ID is required")
+    private Long vehicleId;
+
+    @NotNull(message = "Driver ID is required")
+    private Long driverId;
+}
